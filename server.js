@@ -1,4 +1,5 @@
 const express = require('express')
+const routerApi = require('./routes')
 
 const app = express()
 
@@ -16,5 +17,10 @@ app.use("/concesionario", require('./routes/concesionario'))
 app.use("/empleado", require('./routes/empleado'))
 app.use("/vehiculo", require('./routes/vehiculo'))
 
+app.get('/', (req,res)=>{
+    res.send('Prueba de funcionamiento del server')
+})
+
+routerApi(app)
 
 app.listen(app.get('PORT'),()=>console.log(`Sever Listen to Port ${app.get('PORT')}`))
