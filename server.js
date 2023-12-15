@@ -12,6 +12,17 @@ app.set('PORT',process.env.PORT || 3000)
 //middlewares
 app.use(express.json())
 
+/*const whitelist = ['http://localhost:8080']
+const options = {
+    origin: (origin, callback) => {
+        if (whitelist.includes(origin)){
+            callback(null,true)
+        }
+    }
+
+}
+app.use(cors())*/
+
 app.use("/cliente", require('./routes/cliente'))
 app.use("/concesionario", require('./routes/concesionario'))
 app.use("/empleado", require('./routes/empleado'))
